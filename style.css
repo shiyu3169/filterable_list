@@ -1,0 +1,13 @@
+body {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.contact-name a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+.text-red {
+    color: red;
+}
