@@ -1,31 +1,25 @@
-//  Get user input element
-var filterInput = document.querySelector("#filter");
+// Get user input
+var filter = document.querySelector("#filter")
 
-// console.log(filterInput);
 
-// Add event listner
-filterInput.addEventListener("keyup", filterNames);
+// Add event listner to listen user input
+filter.addEventListener("keyup", filterNames)
 
-function filterNames() {
-    // console.log("hello from filterNames");
+// filter out list depends on the user input
+function filterNames(){
+    // Get value of user input
+    var value = filter.value;
 
-    // Get value that user input
-    var filterValue = filterInput.value;
-    // console.log(filterValue);
-
-    // Get all names in contact list
-    var names = document.querySelectorAll("li.contact-name");
-    // console.log(names);
-
-    // loop through names in contact list
-    for (var i = 0; i < names.length; i++) {
-        // Get link inside names
-        var a = names[i].querySelector("a");
-        // console.log(a);
-        if (a.innerHTML.toUpperCase().includes(filterValue.toUpperCase())) {
-            names[i].style.display = "block";
+    // Get all names in list
+    var names = document.querySelectorAll("li a");
+    
+    // Loop over names
+    for(var i=0;i<names.length;i++){
+        // compare names
+        if(names[i].innerText.toUpperCase().includes(value.toUpperCase())) {
+            names[i].parentElement.style.display ="block"
         } else {
-            names[i].style.display = "none";
+            names[i].parentElement.style.display ="none"
         }
     }
 }
