@@ -1,25 +1,21 @@
 // Get user input
-var filter = document.querySelector("#filter")
-
-
-// Add event listner to listen user input
-filter.addEventListener("keyup", filterNames)
+const filter = document.querySelector("#filter")
 
 // filter out list depends on the user input
-function filterNames(){
+const filterNames = () => {
     // Get value of user input
-    var value = filter.value;
-
-    // Get all names in list
-    var names = document.querySelectorAll("li a");
-    
+    const value = filter.value;
+    const names = document.querySelectorAll("li a");
     // Loop over names
-    for(var i=0;i<names.length;i++){
+    for(let name of names){
         // compare names
-        if(names[i].innerText.toUpperCase().includes(value.toUpperCase())) {
-            names[i].parentElement.style.display ="block"
+        if(name.innerText.toUpperCase().includes(value.toUpperCase())) {
+            name.parentElement.style.display ="block"
         } else {
-            names[i].parentElement.style.display ="none"
+            name.parentElement.style.display ="none"
         }
     }
 }
+
+// Add event listner to listen user input
+filter.addEventListener("keyup", filterNames)
